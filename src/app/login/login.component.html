@@ -1,0 +1,40 @@
+<div class="container">
+  <div style="width: 40%; margin: auto; background-color: #f0f0f0">
+    <div style="width: 50%; margin: auto">
+      <form [formGroup]="loginForm">
+        <h1>Login Here</h1>
+        <div *ngIf="responseError" class="form-group mt-3">
+          <label class="alert alert-danger" for="">{{ responseError }}</label>
+        </div>
+        <div class="form-group mt-3">
+          <label for="">Email</label>
+          <input
+            [(ngModel)]="userdetails.email"
+            formControlName="email"
+            type="text"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="">Password</label>
+          <input
+            [(ngModel)]="userdetails.password"
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
+          <p style="float: right">
+            <a routerLink="/forgot">Forgot Password?</a>
+          </p>
+        </div>
+        <div class="form-group mt-3">
+          <button (click)="login()" class="btn btn-primary">Login</button>
+        </div>
+        <div class="form-group mt-3">
+          <p><a routerLink="/signup">New User? Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

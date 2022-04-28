@@ -1,0 +1,42 @@
+<div class="component">
+  <h1 class="mt-5">My Cart</h1>
+  <div class="mt-5" *ngIf="cartitems.length">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartitems; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td><img style="width: 60px; height: 60px;" [src]="item.image" alt=""></td>
+            <td>Rs. {{item.price}}</td>
+            <td>
+              <button (click)="increase_quantity(i)" class="btn btn-light btn-md mr-1 mb-2">+</button>
+              {{item.quantity}}
+              <button (click)="decrease_quantity(i)" class="btn btn-light btn-md mr-1 mb-2" [disabled]="item.quantity==1">-</button>
+            </td>
+            <td>Rs. {{item.price*item.quantity}}</td>
+            <td><button (click)="delete_cake(i)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <p>Total Price: {{totalPrice}}</p>
+        <button class="btn btn-warning" routerLink="/checkout" style="float: right;">Checkout</button>
+      </div>
+    </div>
+
+    <div *ngIf="!isloggedin" class="default_disp">
+      <img src="assets/cart.jpg" class="rounded mx-auto d-block" alt="...">
+      <h3>Login to add items to cart</h3>
+    </div>
+</div>

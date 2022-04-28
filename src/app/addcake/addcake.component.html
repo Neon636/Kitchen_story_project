@@ -1,0 +1,55 @@
+<div class="container">
+    <div style="width: 40%; margin: auto; background-color: #f0f0f0;">
+        <div style="width: 50%; margin: auto;">
+            <h1>Add Cakes</h1>
+            <div class="form-group mt-3">
+                <label for="">Name</label>
+                <input [(ngModel)]="cakedetails.name" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Price</label>
+                <input [(ngModel)]="cakedetails.price" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Description</label>
+                <input [(ngModel)]="cakedetails.description" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Upload image</label><br> 
+                <input (change)="getFile($event)" type="file">  
+                <button (click)="upload()">upload</button>             
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Ingredients</label>
+                <input [(ngModel)]="cakedetails.ingredients" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Occasion</label>
+                <input [(ngModel)]="cakedetails.type" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Weight</label>
+                <input [(ngModel)]="cakedetails.weight" type="text" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="cakedetails.eggless">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Eggless?
+                    </label>
+                </div>
+            </div>    
+            
+            <div class="form-group mt-3">
+                <button (click)="addcake()" class="btn btn-primary">Add cake</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- price,
+    description,
+    ingredients:[],
+    image: url coming from server 
+    type,
+    weight
+    eggles-->

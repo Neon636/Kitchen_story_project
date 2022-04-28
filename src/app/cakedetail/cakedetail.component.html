@@ -1,0 +1,32 @@
+<h1>{{cake.name}}</h1>
+<img src="{{cake.image}}" alt="{{cake.name}}" style="height: 300px; width: 300px; float: left; margin-right: 20px;">
+<h5>{{cake.name}}</h5>
+<p class="mb-2 text-muted text-uppercase small">{{cake.reviews}} reviews</p>
+<p><span class="mr-1"><strong>{{cake.price | currency}}</strong></span></p>
+<p class="pt-1">{{cake.description}}</p>
+<div class="table-responsive" style="float: left;">
+    <table class="table table-sm table-borderless mb-0">
+        <tbody>
+            <tr>
+                <th class="pl=0 w-25" scope="row"><strong>Flavour</strong></th>
+                <td>{{cake.flavour}}</td>
+            </tr>
+            <tr>
+                <th class="pl=0 w-25" scope="row"><strong>Ingredients</strong></th>
+                <td>{{cake.ingredients}}</td>
+            </tr>
+            <tr>
+                <th class="pl=0 w-25" scope="row"><strong>Occasion</strong></th>
+                <td>{{cake.type}}</td>
+            </tr>
+            <tr>
+                <th class="pl=0 w-25" scope="row"><strong>Weight</strong></th>
+                <td>{{cake.weight}} kg</td>
+            </tr>      
+        </tbody>
+    </table>
+    <hr>
+    <button *ngIf="!isAdding" type="button" class="btn btn-light btn-md mr-1 mb-2" (click)="addToCart()"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+    <button *ngIf="isAdding" disabled type="button" class="btn btn-light btn-md mr-1 mb-2" (click)="addToCart()"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Adding to cart...Please Wait</button>
+    
+</div>

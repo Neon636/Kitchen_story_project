@@ -1,0 +1,56 @@
+<h2>We currently offer only COD!</h2> 
+<div class="component">
+<div class="table-responsive" style="float: left;">
+  <table class="table table-sm table-borderless mb-0">
+      <tbody>
+          <tr>
+              <th class="pl=0 w-25" scope="row"><strong>Name</strong></th>
+              <td>{{userdetails.name}}</td>
+          </tr>
+          <tr>
+              <th class="pl=0 w-25" scope="row"><strong>Address</strong></th>
+              <td>{{userdetails.address}}</td>
+          </tr>
+          <tr>
+              <th class="pl=0 w-25" scope="row"><strong>City</strong></th>
+              <td>{{userdetails.city}}</td>
+          </tr>
+          <tr>
+              <th class="pl=0 w-25" scope="row"><strong>PinCode</strong></th>
+              <td>{{userdetails.pincode}}</td>
+          </tr>   
+          <tr>
+            <th class="pl=0 w-25" scope="row"><strong>Phone</strong></th>
+            <td>{{userdetails.phone}}</td>
+        </tr>   
+      </tbody>
+  </table>
+</div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartitems; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td><img style="width: 60px; height: 60px;" [src]="item.image" alt=""></td>
+            <td>Rs. {{item.price*item.quantity}}</td>
+            <td>{{item.quantity}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <p>Total Price: {{totalPrice}}</p>
+        <input type="checkbox" name="" checked id=""> COD <br><br>
+        <button class="btn btn-success" routerLink="/" (click)="order()">ORDER NOW</button>
+      </div>
+
+      
+</div>

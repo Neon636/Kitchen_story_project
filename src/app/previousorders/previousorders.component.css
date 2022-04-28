@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap");
+img{
+    width: 250px;
+    height: 250px;
+}
+
+h3{
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+}

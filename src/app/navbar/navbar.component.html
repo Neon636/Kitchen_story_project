@@ -1,0 +1,39 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a routerLink="/" class="navbar-brand" href="#">{{projecttitle}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Home <i class="fa fa-home" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" routerLink="/cart">My Cart 
+              <span *ngIf="length" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{length}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/previousorders">My Orders <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isAdmin" class="nav-link" routerLink="/addcake">Add New Cake <i class="fa fa-birthday-cake" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input name="search" [(ngModel)]="searchtext" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button (click)="search()" class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form> &nbsp;
+        <div class="d-flex">
+          <button routerLink="/login" *ngIf="!isloggedin" class="btn btn-success" type="submit">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+          <button (click)="logout()" *ngIf="isloggedin" class="btn btn-danger" type="submit">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
